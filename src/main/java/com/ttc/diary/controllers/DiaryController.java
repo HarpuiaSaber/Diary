@@ -22,7 +22,7 @@ public class DiaryController {
         this.fileService = fileService;
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/images")
     public List<String> uploadMultipartFile(@RequestParam MultipartFile[] files) {
         return fileService.uploadImage(files, Constants.FOLDER_IMAGE + File.separator + Constants.FOLDER_DIARY);
     }

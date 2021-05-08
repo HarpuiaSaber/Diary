@@ -19,7 +19,7 @@ public class FileServiceImpl implements FileService {
     public List<String> uploadImage(MultipartFile[] files, String folder) {
         List<String> paths = new ArrayList<>();
         for (MultipartFile file : files) {
-            paths.add(Constants.BASE_URL + "/" + FileUtils.saveFile(file, folder));
+            paths.add(Constants.BASE_URL + FileUtils.saveFile(file, folder));
         }
         return paths;
     }
