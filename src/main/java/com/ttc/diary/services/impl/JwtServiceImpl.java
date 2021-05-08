@@ -27,7 +27,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public JwtResponse getUserandToken(LoginRequest request) {
+    public JwtResponse getUserAndToken(LoginRequest request) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         Authentication authentication = authenticationManager.authenticate(token);
 
