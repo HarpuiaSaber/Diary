@@ -1,6 +1,12 @@
 package com.ttc.diary.services;
 
-public interface DiaryService {
+import com.ttc.diary.models.DiaryDto;
 
-    String delete(Long id);
+import com.ttc.diary.entities.Diary;
+import org.springframework.http.ResponseEntity;
+
+public interface DiaryService {
+    DiaryDto createDiary(DiaryDto dto);
+    ResponseEntity<Diary> changeFavoriteStatus(Long id, Boolean isFavorite);
+     String delete(Long id);
 }

@@ -7,5 +7,5 @@ public interface Constants {
     public static final String FOLDER_IMAGE = "images";
     public static final String FOLDER_USER = "user";
     public static final String FOLDER_DIARY = "diary";
-    public static final String UPLOAD_FOLDER = "C:\\Users\\ztoan\\IdeaProjects\\Diary\\src\\main\\resources\\static";
+    public static final String UPLOAD_FOLDER = "D:\\TTC Solutions\\SpringBoot\\Diary\\src\\main\\resources\\static";
 }

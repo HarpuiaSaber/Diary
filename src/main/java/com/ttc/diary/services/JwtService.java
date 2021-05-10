@@ -5,5 +5,5 @@ import com.ttc.diary.models.LoginRequest;
 
 public interface JwtService {
 
-    JwtResponse getUserandToken(LoginRequest request);
+    JwtResponse getUserAndToken(LoginRequest request);
 }
