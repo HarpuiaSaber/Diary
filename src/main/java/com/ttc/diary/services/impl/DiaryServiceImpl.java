@@ -4,10 +4,8 @@ import com.ttc.diary.entities.Diary;
 import com.ttc.diary.entities.DiaryImage;
 import com.ttc.diary.entities.Topic;
 import com.ttc.diary.entities.User;
+import com.ttc.diary.models.*;
 import com.ttc.diary.exception.ResourceNotFoundException;
-import com.ttc.diary.models.DiaryDto;
-import com.ttc.diary.models.ImageDto;
-import com.ttc.diary.models.UserPrincipal;
 import com.ttc.diary.repositories.DiaryImageRepository;
 import com.ttc.diary.repositories.DiaryRepository;
 import com.ttc.diary.repositories.TopicRepository;
@@ -74,8 +72,29 @@ public class DiaryServiceImpl implements DiaryService {
                 .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
         isFavorite = diary.getFavorite();
         diary.setFavorite(!isFavorite);
+        return null;
+    }
 
-        return ResponseEntity.ok(diaryRepository.save(diary));
+    @Override
+    public DiaryDetailDto getDiaryById(Long id) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
+
+        DiaryDetailDto diaryDetailDto = new DiaryDetailDto();
+
+        diaryDetailDto.setId(diary.getId());
+        diaryDetailDto.setTopics(diary.getTopics().stream()
+                .map(s -> new TopicDto(s.getId(), s.getName()))
+                .collect(Collectors.toList()));
+        diaryDetailDto.setTitle(diary.getTitle());
+        diaryDetailDto.setContent(diary.getContent());
+        diaryDetailDto.setImages(diaryImageRepository.findAllByDiaryId(id).stream()
+                .map(s -> new ImageDto(s.getId(), s.getPath()))
+                .collect(Collectors.toList()));
+        diaryDetailDto.setCreationTime(diary.getCreationTime());
+        diaryDetailDto.setModificationTime(diary.getModificationTime());
+
+        return diaryDetailDto;
     }
 
     @Override
