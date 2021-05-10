@@ -12,6 +12,7 @@ public class DiaryImage extends BaseEntity<Long> {
     private Diary diary;
 
     public DiaryImage() {
+        //default constructor
     }
 
     public DiaryImage(Long id) {

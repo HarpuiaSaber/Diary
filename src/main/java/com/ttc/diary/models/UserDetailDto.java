@@ -9,6 +9,7 @@ public class UserDetailDto implements Serializable {
     private String avatar;
 
     public UserDetailDto() {
+        //default constructor
     }
 
     public UserDetailDto(Long id, String name, String username, String avatar) {

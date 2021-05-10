@@ -11,6 +11,7 @@ public class DiaryDto implements Serializable {
     private List<Long> topicIds;
 
     public DiaryDto() {
+        //default constructor
     }
 
     public DiaryDto(String title, String content, List<ImageDto> imageDtos, List<Long> topicIds) {

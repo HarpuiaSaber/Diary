@@ -14,6 +14,7 @@ public class DiaryDetailDto implements Serializable {
     private List<TopicDto> topics;
 
     public DiaryDetailDto() {
+        //default constructor
     }
 
     public DiaryDetailDto(Long id, String title, String content, LocalDateTime creationTime, LocalDateTime modificationTime, List<ImageDto> images, List<TopicDto> topics) {

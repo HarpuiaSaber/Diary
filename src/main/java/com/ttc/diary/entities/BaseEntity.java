@@ -13,6 +13,7 @@ public abstract class BaseEntity<ID extends Serializable> implements Serializabl
     private ID id;
 
     public BaseEntity() {
+        //default constructor
     }
 
     public BaseEntity(ID id) {

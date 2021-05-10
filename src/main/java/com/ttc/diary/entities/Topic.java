@@ -11,6 +11,7 @@ public class Topic extends BaseEntity<Long> {
     private String name;
 
     public Topic() {
+        //default constructor
     }
 
     public Topic(Long id) {

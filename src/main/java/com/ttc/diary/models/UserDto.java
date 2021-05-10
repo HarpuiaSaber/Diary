@@ -12,6 +12,7 @@ public class UserDto implements Serializable {
     private String password;
 
     public UserDto() {
+        //default constructor
     }
 
     public Long getId() {

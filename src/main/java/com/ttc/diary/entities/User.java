@@ -14,6 +14,7 @@ public class User extends BaseEntity<Long> {
     private String avatar;
 
     public User() {
+        //default constructor
     }
 
     public User(Long id) {

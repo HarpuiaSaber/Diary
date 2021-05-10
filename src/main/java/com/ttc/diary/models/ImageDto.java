@@ -7,6 +7,7 @@ public class ImageDto implements Serializable {
     private String path;
 
     public ImageDto() {
+        //default constructor
     }
 
     public ImageDto(Long id, String path) {

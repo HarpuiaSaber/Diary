@@ -7,6 +7,7 @@ public class TopicDto implements Serializable {
     private String name;
 
     public TopicDto() {
+        //default constructor
     }
 
     public TopicDto(long id, String name) {

@@ -8,6 +8,7 @@ public class JwtResponse implements Serializable {
     private String type = "Bearer";
 
     public JwtResponse() {
+        //default constructor
     }
 
     public JwtResponse(UserDetailDto user, String token) {
