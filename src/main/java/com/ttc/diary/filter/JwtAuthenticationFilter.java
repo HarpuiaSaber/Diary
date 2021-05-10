@@ -1,7 +1,7 @@
 package com.ttc.diary.filter;
 
-import com.ttc.diary.components.jwt.JwtTokenProvider;
-import com.ttc.diary.services.UserService;
+import com.ttc.diary.component.jwt.JwtTokenProvider;
+import com.ttc.diary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
