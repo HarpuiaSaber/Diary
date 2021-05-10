@@ -21,4 +21,5 @@ public class DiaryController {
     public DiaryDto createDiary(@RequestBody DiaryDto dto) {
         return diaryService.createDiary(dto);
     }
+
 }

@@ -1,8 +1,9 @@
 package com.ttc.diary.services.impl;
 
 import com.ttc.diary.entities.Diary;
+import com.ttc.diary.entities.DiaryImage;
+import com.ttc.diary.entities.Topic;
 import com.ttc.diary.entities.User;
-import com.ttc.diary.exception.ResourceNotFoundException;
 import com.ttc.diary.models.DiaryDto;
 import com.ttc.diary.models.UserPrincipal;
 import com.ttc.diary.repositories.DiaryImageRepository;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,21 +45,18 @@ public class DiaryServiceImpl implements DiaryService {
         UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
         Diary diary = new Diary();
         diary.setOwner(new User(principal.getId()));
+        diary.setTitle(dto.getTitle());
+        diary.setContent(dto.getContent());
+        diary.setFavorite(false);
+        diary.setTopics(dto.getTopicIds().stream().map(s -> new Topic(s)).collect(Collectors.toList()));
 
         diaryRepository.saveAndFlush(diary);
 
+        List<DiaryImage> images = dto.getImageDtos().stream()
+                .map(s-> new DiaryImage(s.getPath(), diary)).collect(Collectors.toList());
+        diaryImageRepository.saveAll(images);
 
         return dto;
     }
 
-    @Override
-    public DiaryDto updateDiary(Long id, DiaryDto diaryDto) {
-        Diary diary = diaryRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id " + id));
-        diary.setTitle(diaryDto.getTitle());
-        diary.setContent(diaryDto.getContent());
-        diary.getTopics().stream().map(s->s.getId()).collect(Collectors.toList());
-        diaryDto.getTopicIds();
-        return diaryDto;
-    }
 }
