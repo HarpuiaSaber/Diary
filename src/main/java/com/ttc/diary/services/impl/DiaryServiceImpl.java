@@ -48,7 +48,8 @@ public class DiaryServiceImpl implements DiaryService {
         diary.setTitle(dto.getTitle());
         diary.setContent(dto.getContent());
         diary.setFavorite(false);
-        diary.setTopics(dto.getTopicIds().stream().map(s -> new Topic(s)).collect(Collectors.toList()));
+        List<Topic> topics = topicRepository.findAllById(dto.getTopicIds());
+        diary.setTopics(topics);
 
         diaryRepository.saveAndFlush(diary);
 
