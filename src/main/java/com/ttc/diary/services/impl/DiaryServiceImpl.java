@@ -4,7 +4,9 @@ import com.ttc.diary.entities.Diary;
 import com.ttc.diary.entities.DiaryImage;
 import com.ttc.diary.entities.Topic;
 import com.ttc.diary.entities.User;
+import com.ttc.diary.exception.ResourceNotFoundException;
 import com.ttc.diary.models.DiaryDto;
+import com.ttc.diary.models.ImageDto;
 import com.ttc.diary.models.UserPrincipal;
 import com.ttc.diary.repositories.DiaryImageRepository;
 import com.ttc.diary.repositories.DiaryRepository;
@@ -75,7 +77,7 @@ public class DiaryServiceImpl implements DiaryService {
 
         return ResponseEntity.ok(diaryRepository.save(diary));
     }
-    
+
     @Override
     public String delete(Long id) {
         Diary diary = diaryRepository.findById(id)
@@ -91,4 +93,30 @@ public class DiaryServiceImpl implements DiaryService {
 
         diaryRepository.delete(diary);
         return "Delete success";
+    }
+    @Override
+    public DiaryDto updateDiary(Long id, DiaryDto diaryDto) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id " + id));
+        diary.setTitle(diaryDto.getTitle());
+        diary.setContent(diaryDto.getContent());
+
+        diary.setTopics(topicRepository.findAllById(diaryDto.getTopicIds()));
+
+        List<Long> imageIds = diaryDto.getImageDtos().stream().map(ImageDto::getId).collect(Collectors.toList());
+        List<DiaryImage> diaryImages = diaryImageRepository.findAllByDiaryId(id);
+
+        List<DiaryImage> diaryOldImages = diaryImages.stream()
+                .filter(s -> !imageIds.contains(s.getId()))
+                .collect(Collectors.toList());
+        diaryImageRepository.deleteInBatch(diaryOldImages);
+
+        List<DiaryImage> diaryNewImages = diaryDto.getImageDtos().stream()
+                .filter(s -> s.getId() == null || (s.getId() != null && s.getId() == 0))
+                .map(s -> new DiaryImage(s.getPath(), diary))
+                .collect(Collectors.toList());
+        diaryImageRepository.saveAll(diaryNewImages);
+
+        return diaryDto;
+    }
 }
