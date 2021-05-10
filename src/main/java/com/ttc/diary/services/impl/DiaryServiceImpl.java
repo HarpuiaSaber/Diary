@@ -4,12 +4,13 @@ import com.ttc.diary.entities.Diary;
 import com.ttc.diary.entities.DiaryImage;
 import com.ttc.diary.entities.Topic;
 import com.ttc.diary.entities.User;
-import com.ttc.diary.models.DiaryDto;
-import com.ttc.diary.models.UserPrincipal;
+import com.ttc.diary.models.*;
+import com.ttc.diary.exception.ResourceNotFoundException;
 import com.ttc.diary.repositories.DiaryImageRepository;
 import com.ttc.diary.repositories.DiaryRepository;
 import com.ttc.diary.repositories.TopicRepository;
 import com.ttc.diary.services.DiaryService;
+import com.ttc.diary.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +43,6 @@ public class DiaryServiceImpl implements DiaryService {
         this.diaryImageRepository = diaryImageRepository;
     }
 
-    @Override
     public DiaryDto createDiary(DiaryDto dto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.isAuthenticated()) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user");
@@ -70,5 +73,69 @@ public class DiaryServiceImpl implements DiaryService {
         diary.setFavorite(!diary.getFavorite());
 
         return null;
+    }
+
+    @Override
+    public DiaryDetailDto getDiaryById(Long id) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
+
+        DiaryDetailDto diaryDetailDto = new DiaryDetailDto();
+
+        diaryDetailDto.setId(diary.getId());
+        diaryDetailDto.setTopics(diary.getTopics().stream()
+                .map(s -> new TopicDto(s.getId(), s.getName()))
+                .collect(Collectors.toList()));
+        diaryDetailDto.setTitle(diary.getTitle());
+        diaryDetailDto.setContent(diary.getContent());
+        diaryDetailDto.setImages(diaryImageRepository.findAllByDiaryId(id).stream()
+                .map(s -> new ImageDto(s.getId(), s.getPath()))
+                .collect(Collectors.toList()));
+        diaryDetailDto.setCreationTime(diary.getCreationTime());
+        diaryDetailDto.setModificationTime(diary.getModificationTime());
+
+        return diaryDetailDto;
+    }
+
+    @Override
+    public String delete(Long id) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
+        List<DiaryImage> images = diaryImageRepository.findAllByDiaryId(id);
+        for (DiaryImage image : images) {
+            try {
+                Files.deleteIfExists(Paths.get(Constants.BASE_URL + image.getPath()));
+            } catch (IOException e) {
+            }
+        }
+        diaryImageRepository.deleteInBatch(images);
+
+        diaryRepository.delete(diary);
+        return "Delete success";
+    }
+    @Override
+    public DiaryDto updateDiary(Long id, DiaryDto diaryDto) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id " + id));
+        diary.setTitle(diaryDto.getTitle());
+        diary.setContent(diaryDto.getContent());
+
+        diary.setTopics(topicRepository.findAllById(diaryDto.getTopicIds()));
+
+        List<Long> imageIds = diaryDto.getImageDtos().stream().map(ImageDto::getId).collect(Collectors.toList());
+        List<DiaryImage> diaryImages = diaryImageRepository.findAllByDiaryId(id);
+
+        List<DiaryImage> diaryOldImages = diaryImages.stream()
+                .filter(s -> !imageIds.contains(s.getId()))
+                .collect(Collectors.toList());
+        diaryImageRepository.deleteInBatch(diaryOldImages);
+
+        List<DiaryImage> diaryNewImages = diaryDto.getImageDtos().stream()
+                .filter(s -> s.getId() == null || (s.getId() != null && s.getId() == 0))
+                .map(s -> new DiaryImage(s.getPath(), diary))
+                .collect(Collectors.toList());
+        diaryImageRepository.saveAll(diaryNewImages);
+
+        return diaryDto;
     }
 }

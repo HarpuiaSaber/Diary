@@ -1,6 +1,7 @@
 package com.ttc.diary.controllers;
 
 import com.ttc.diary.entities.Diary;
+import com.ttc.diary.models.DiaryDetailDto;
 import com.ttc.diary.services.FileService;
 import com.ttc.diary.utils.Constants;
 import com.ttc.diary.models.DiaryDto;
@@ -47,5 +48,20 @@ public class DiaryController {
     @PutMapping("/{id}/favorites")
     public ResponseEntity<Diary> changeFavoriteStatus(@PathVariable Long id){
         return diaryService.changeFavoriteStatus(id);
+    }
+
+    @GetMapping("/{id}")
+    public DiaryDetailDto getDiaryById(@PathVariable Long id){
+        return diaryService.getDiaryById(id);
+    }
+  
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        return diaryService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public DiaryDto updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto){
+        return diaryService.updateDiary(id, diaryDto);
     }
 }
