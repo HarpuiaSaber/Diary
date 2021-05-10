@@ -11,4 +11,6 @@ public interface DiaryService {
     DiaryDto createDiary(DiaryDto dto);
     ResponseEntity<Diary> changeFavoriteStatus(Long id, Boolean isFavorite);
     DiaryDetailDto getDiaryById(Long id);
+    String delete(Long id);
+    DiaryDto updateDiary(Long id, DiaryDto diaryDto);
 }

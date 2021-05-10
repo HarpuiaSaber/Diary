@@ -54,4 +54,14 @@ public class DiaryController {
     public DiaryDetailDto getDiaryById(@PathVariable Long id){
         return diaryService.getDiaryById(id);
     }
+  
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        return diaryService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public DiaryDto updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto){
+        return diaryService.updateDiary(id, diaryDto);
+    }
 }
