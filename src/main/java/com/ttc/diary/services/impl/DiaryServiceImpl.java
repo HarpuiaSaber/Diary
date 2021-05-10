@@ -64,12 +64,11 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public ResponseEntity<Diary> changeFavoriteStatus(Long id, Boolean isFavorite) {
+    public ResponseEntity<Diary> changeFavoriteStatus(Long id) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
-        isFavorite = diary.getFavorite();
-        diary.setFavorite(!isFavorite);
+        diary.setFavorite(!diary.getFavorite());
 
-        return ResponseEntity.ok(diaryRepository.save(diary));
+        return null;
     }
 }

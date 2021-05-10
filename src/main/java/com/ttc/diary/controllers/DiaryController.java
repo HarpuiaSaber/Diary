@@ -44,8 +44,8 @@ public class DiaryController {
         return diaryService.createDiary(dto);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Diary> changeFavoriteStatus(@PathVariable Long id, @RequestParam Boolean isFavorite){
-        return diaryService.changeFavoriteStatus(id, isFavorite);
+    @PutMapping("/{id}/favorites")
+    public ResponseEntity<Diary> changeFavoriteStatus(@PathVariable Long id){
+        return diaryService.changeFavoriteStatus(id);
     }
 }

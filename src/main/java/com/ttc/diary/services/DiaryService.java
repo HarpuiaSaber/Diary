@@ -8,5 +8,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface DiaryService {
     DiaryDto createDiary(DiaryDto dto);
-    ResponseEntity<Diary> changeFavoriteStatus(Long id, Boolean isFavorite);
+    ResponseEntity<Diary> changeFavoriteStatus(Long id);
 }
