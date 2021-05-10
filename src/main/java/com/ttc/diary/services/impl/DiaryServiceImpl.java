@@ -10,6 +10,7 @@ import com.ttc.diary.repositories.DiaryImageRepository;
 import com.ttc.diary.repositories.DiaryRepository;
 import com.ttc.diary.repositories.TopicRepository;
 import com.ttc.diary.services.DiaryService;
+import com.ttc.diary.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +43,6 @@ public class DiaryServiceImpl implements DiaryService {
         this.diaryImageRepository = diaryImageRepository;
     }
 
-    @Override
     public DiaryDto createDiary(DiaryDto dto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.isAuthenticated()) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user");
@@ -72,4 +75,20 @@ public class DiaryServiceImpl implements DiaryService {
 
         return ResponseEntity.ok(diaryRepository.save(diary));
     }
+    
+    @Override
+    public String delete(Long id) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
+        List<DiaryImage> images = diaryImageRepository.findAllByDiaryId(id);
+        for (DiaryImage image : images) {
+            try {
+                Files.deleteIfExists(Paths.get(Constants.BASE_URL + image.getPath()));
+            } catch (IOException e) {
+            }
+        }
+        diaryImageRepository.deleteInBatch(images);
+
+        diaryRepository.delete(diary);
+        return "Delete success";
 }

@@ -48,4 +48,8 @@ public class DiaryController {
     public ResponseEntity<Diary> changeFavoriteStatus(@PathVariable Long id, @RequestParam Boolean isFavorite){
         return diaryService.changeFavoriteStatus(id, isFavorite);
     }
+  
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        return diaryService.delete(id);
 }
