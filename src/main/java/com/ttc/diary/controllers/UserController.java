@@ -29,6 +29,6 @@ public class UserController {
 
     @PostMapping("/login")
     public JwtResponse login(@RequestBody LoginRequest request) {
-      return jwtService.getUserandToken(request);
+      return jwtService.getUserAndToken(request);
     }
 }

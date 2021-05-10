@@ -18,7 +18,7 @@ public class FileUtils {
 
             Path pathAvatar = Paths.get(Constants.UPLOAD_FOLDER + name);
             Files.write(pathAvatar, file.getBytes());
-            return name;
+            return name.replace("\\", "/");
         } catch (IOException e) {
             return null;
         }

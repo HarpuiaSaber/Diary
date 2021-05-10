@@ -1,5 +1,8 @@
 package com.ttc.diary.entities;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,9 +16,11 @@ public class Diary extends BaseEntity<Long> {
     @Basic(fetch = FetchType.LAZY)
     private String content;
 
+    @CreatedDate
     @Column(name = "creation_time")
     private LocalDateTime creationTime;
 
+    @LastModifiedDate
     @Column(name = "modification_time")
     private LocalDateTime modificationTime;
 
