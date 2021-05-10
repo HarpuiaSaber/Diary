@@ -18,6 +18,11 @@ public class DiaryImage extends BaseEntity<Long> {
         super(id);
     }
 
+    public DiaryImage(String path, Diary diary) {
+        this.path = path;
+        this.diary = diary;
+    }
+
     public String getPath() {
         return path;
     }
