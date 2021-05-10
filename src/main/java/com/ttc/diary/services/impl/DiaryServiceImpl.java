@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -62,4 +63,13 @@ public class DiaryServiceImpl implements DiaryService {
         return dto;
     }
 
+    @Override
+    public ResponseEntity<Diary> changeFavoriteStatus(Long id, Boolean isFavorite) {
+        Diary diary = diaryRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
+        isFavorite = diary.getFavorite();
+        diary.setFavorite(!isFavorite);
+
+        return ResponseEntity.ok(diaryRepository.save(diary));
+    }
 }
