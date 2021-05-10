@@ -52,11 +52,13 @@ public class DiaryServiceImpl implements DiaryService {
         diary.setTopics(topics);
 
         diaryRepository.saveAndFlush(diary);
-
+        dto.setId(diary.getId());
         List<DiaryImage> images = dto.getImageDtos().stream()
                 .map(s-> new DiaryImage(s.getPath(), diary)).collect(Collectors.toList());
         diaryImageRepository.saveAll(images);
-
+        for (int i=0; i<images.size(); i++){
+            dto.getImageDtos().get(i).setId(images.get(i).getId());
+        }
         return dto;
     }
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class DiaryDto implements Serializable {
+    private Long id;
     private String title;
     private String content;
     private List<ImageDto> imageDtos;
@@ -17,6 +18,14 @@ public class DiaryDto implements Serializable {
         this.content = content;
         this.imageDtos = imageDtos;
         this.topicIds = topicIds;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
