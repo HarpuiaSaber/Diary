@@ -2,14 +2,15 @@ package com.ttc.diary.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public class DiaryDetailDto implements Serializable {
     private Long id;
     private String title;
     private String content;
-    private LocalDateTime creationTime;
-    private LocalDateTime modificationTime;
+    private OffsetDateTime creationTime;
+    private OffsetDateTime modificationTime;
     private List<ImageDto> images;
     private List<TopicDto> topics;
 
@@ -17,7 +18,7 @@ public class DiaryDetailDto implements Serializable {
         //default constructor
     }
 
-    public DiaryDetailDto(Long id, String title, String content, LocalDateTime creationTime, LocalDateTime modificationTime, List<ImageDto> images, List<TopicDto> topics) {
+    public DiaryDetailDto(Long id, String title, String content, OffsetDateTime creationTime, OffsetDateTime modificationTime, List<ImageDto> images, List<TopicDto> topics) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -51,19 +52,19 @@ public class DiaryDetailDto implements Serializable {
         this.content = content;
     }
 
-    public LocalDateTime getCreationTime() {
+    public OffsetDateTime getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(LocalDateTime creationTime) {
+    public void setCreationTime(OffsetDateTime creationTime) {
         this.creationTime = creationTime;
     }
 
-    public LocalDateTime getModificationTime() {
+    public OffsetDateTime getModificationTime() {
         return modificationTime;
     }
 
-    public void setModificationTime(LocalDateTime modificationTime) {
+    public void setModificationTime(OffsetDateTime modificationTime) {
         this.modificationTime = modificationTime;
     }
 

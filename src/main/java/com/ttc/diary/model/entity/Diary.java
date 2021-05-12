@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Entity
@@ -23,12 +24,12 @@ public class Diary implements java.io.Serializable {
     private String content;
 
     @CreatedDate
-    @Column(name = "creation_time")
-    private LocalDateTime creationTime;
+    @Column(name = "creation_time", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private OffsetDateTime creationTime;
 
     @LastModifiedDate
-    @Column(name = "modification_time")
-    private LocalDateTime modificationTime;
+    @Column(name = "modification_time", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private OffsetDateTime modificationTime;
 
     @Column(name = "is_favorite")
     private Boolean isFavorite;
@@ -70,19 +71,19 @@ public class Diary implements java.io.Serializable {
         this.content = content;
     }
 
-    public LocalDateTime getCreationTime() {
+    public OffsetDateTime getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(LocalDateTime creationTime) {
+    public void setCreationTime(OffsetDateTime creationTime) {
         this.creationTime = creationTime;
     }
 
-    public LocalDateTime getModificationTime() {
+    public OffsetDateTime getModificationTime() {
         return modificationTime;
     }
 
-    public void setModificationTime(LocalDateTime modificationTime) {
+    public void setModificationTime(OffsetDateTime modificationTime) {
         this.modificationTime = modificationTime;
     }
 
