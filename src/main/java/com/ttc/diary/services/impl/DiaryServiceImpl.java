@@ -6,6 +6,8 @@ import com.ttc.diary.entities.Topic;
 import com.ttc.diary.entities.User;
 import com.ttc.diary.models.*;
 import com.ttc.diary.exception.ResourceNotFoundException;
+import com.ttc.diary.models.response.Response;
+import com.ttc.diary.models.response.SystemResponse;
 import com.ttc.diary.repositories.DiaryImageRepository;
 import com.ttc.diary.repositories.DiaryRepository;
 import com.ttc.diary.repositories.TopicRepository;
@@ -43,7 +45,7 @@ public class DiaryServiceImpl implements DiaryService {
         this.diaryImageRepository = diaryImageRepository;
     }
 
-    public DiaryDto createDiary(DiaryDto dto) {
+    public ResponseEntity<SystemResponse<DiaryDto>> createDiary(DiaryDto dto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.isAuthenticated()) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user");
         UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
@@ -63,22 +65,22 @@ public class DiaryServiceImpl implements DiaryService {
         for (int i=0; i<images.size(); i++){
             dto.getImageDtos().get(i).setId(images.get(i).getId());
         }
-        return dto;
+        return Response.ok(dto);
     }
 
     @Override
-    public ResponseEntity<Diary> changeFavoriteStatus(Long id) {
+    public ResponseEntity<SystemResponse<Diary>> changeFavoriteStatus(Long id) {
         Diary diary = diaryRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
         diary.setFavorite(!diary.getFavorite());
 
-        return null;
+        return Response.ok();
     }
 
     @Override
-    public DiaryDetailDto getDiaryById(Long id) {
+    public ResponseEntity<SystemResponse<DiaryDetailDto>> getDiaryById(Long id) {
         Diary diary = diaryRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Can't found diary with id "+id+" !!!"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
 
         DiaryDetailDto diaryDetailDto = new DiaryDetailDto();
 
@@ -94,11 +96,11 @@ public class DiaryServiceImpl implements DiaryService {
         diaryDetailDto.setCreationTime(diary.getCreationTime());
         diaryDetailDto.setModificationTime(diary.getModificationTime());
 
-        return diaryDetailDto;
+        return Response.ok(diaryDetailDto);
     }
 
     @Override
-    public String delete(Long id) {
+    public ResponseEntity<SystemResponse<Diary>> delete(Long id) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
         List<DiaryImage> images = diaryImageRepository.findAllByDiaryId(id);
@@ -111,10 +113,10 @@ public class DiaryServiceImpl implements DiaryService {
         diaryImageRepository.deleteInBatch(images);
 
         diaryRepository.delete(diary);
-        return "Delete success";
+        return Response.ok(100,"Delete success");
     }
     @Override
-    public DiaryDto updateDiary(Long id, DiaryDto diaryDto) {
+    public ResponseEntity<SystemResponse<DiaryDto>> updateDiary(Long id, DiaryDto diaryDto) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id " + id));
         diary.setTitle(diaryDto.getTitle());
@@ -136,6 +138,6 @@ public class DiaryServiceImpl implements DiaryService {
                 .collect(Collectors.toList());
         diaryImageRepository.saveAll(diaryNewImages);
 
-        return diaryDto;
+        return Response.ok(diaryDto);
     }
 }
