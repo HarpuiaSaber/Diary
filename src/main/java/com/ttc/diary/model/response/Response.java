@@ -1,7 +1,7 @@
-package com.ttc.diary.models.response;
+package com.ttc.diary.model.response;
 
 import com.ttc.diary.exception.HttpErrorException;
-import com.ttc.diary.utils.StringResponse;
+import com.ttc.diary.util.StringResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

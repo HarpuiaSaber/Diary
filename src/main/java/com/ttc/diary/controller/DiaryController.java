@@ -1,12 +1,13 @@
 package com.ttc.diary.controller;
 
-import com.ttc.diary.entities.Diary;
-import com.ttc.diary.models.DiaryDetailDto;
-import com.ttc.diary.models.response.SystemResponse;
-import com.ttc.diary.services.FileService;
-import com.ttc.diary.utils.Constants;
-import com.ttc.diary.models.DiaryDto;
-import com.ttc.diary.services.DiaryService;
+
+import com.ttc.diary.model.DiaryDetailDto;
+import com.ttc.diary.model.entity.Diary;
+import com.ttc.diary.model.response.SystemResponse;
+import com.ttc.diary.service.FileService;
+import com.ttc.diary.util.Constants;
+import com.ttc.diary.model.DiaryDto;
+import com.ttc.diary.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

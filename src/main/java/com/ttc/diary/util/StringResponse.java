@@ -1,4 +1,4 @@
-package com.ttc.diary.utils;
+package com.ttc.diary.util;
 
 public class StringResponse {
     public static final String FILE_TOO_LARGE = "File to large !";

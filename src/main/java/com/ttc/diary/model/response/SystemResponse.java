@@ -1,4 +1,4 @@
-package com.ttc.diary.models.response;
+package com.ttc.diary.model.response;
 
 public class SystemResponse<T> {
     private int status;

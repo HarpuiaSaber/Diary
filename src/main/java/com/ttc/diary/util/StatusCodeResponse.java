@@ -1,4 +1,4 @@
-package com.ttc.diary.utils;
+package com.ttc.diary.util;
 
 import java.util.HashMap;
 import java.util.Map;

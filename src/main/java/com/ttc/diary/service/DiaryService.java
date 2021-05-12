@@ -1,12 +1,9 @@
 package com.ttc.diary.service;
 
-import com.ttc.diary.entities.Diary;
-import com.ttc.diary.models.DiaryDetailDto;
-import com.ttc.diary.models.DiaryDto;
 import com.ttc.diary.model.DiaryDetailDto;
 import com.ttc.diary.model.DiaryDto;
 
-import com.ttc.diary.models.response.SystemResponse;
+import com.ttc.diary.model.response.SystemResponse;
 import com.ttc.diary.model.entity.Diary;
 import org.springframework.http.ResponseEntity;
 
