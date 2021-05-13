@@ -12,5 +12,5 @@ import java.util.stream.Stream;
 public interface DiaryRepository extends JpaRepository<Diary, Long>, JpaSpecificationExecutor<Diary> {
 
     @EntityGraph(attributePaths = {"topics"})
-    Stream<Diary> findDistinctByIdIn(Iterable<Long> id);
+    Stream<Diary> streamAllByIdIn(Iterable<Long> id);
 }

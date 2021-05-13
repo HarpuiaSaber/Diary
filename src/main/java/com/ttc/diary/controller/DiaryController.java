@@ -1,9 +1,11 @@
 package com.ttc.diary.controller;
 
 
+import com.ttc.diary.model.dto.DiaryInListDto;
 import com.ttc.diary.model.entity.Diary;
 import com.ttc.diary.model.dto.DiaryDetailDto;
 import com.ttc.diary.model.response.BaseResponse;
+import com.ttc.diary.model.response.GridResult;
 import com.ttc.diary.service.FileService;
 import com.ttc.diary.util.Constants;
 import com.ttc.diary.model.dto.DiaryDto;
@@ -38,7 +40,7 @@ public class DiaryController {
     }
 
     @DeleteMapping("/images")
-    public String deleteImage(@RequestParam String path){
+    public String deleteImage(@RequestParam String path) {
         return fileService.deleteImage(path);
     }
 
@@ -48,22 +50,27 @@ public class DiaryController {
     }
 
     @PutMapping("/{id}/favorites")
-    public ResponseEntity<BaseResponse<Diary>> changeFavoriteStatus(@PathVariable Long id){
+    public ResponseEntity<BaseResponse<Diary>> changeFavoriteStatus(@PathVariable Long id) {
         return diaryService.changeFavoriteStatus(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BaseResponse<DiaryDetailDto>> getDiaryById(@PathVariable Long id){
+    public ResponseEntity<BaseResponse<DiaryDetailDto>> getDiaryById(@PathVariable Long id) {
         return diaryService.getDiaryById(id);
     }
-  
+
     @DeleteMapping("/{id}")
     public ResponseEntity<BaseResponse<Diary>> delete(@PathVariable Long id) {
         return diaryService.delete(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto){
+    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto) {
         return diaryService.updateDiary(id, diaryDto);
+    }
+
+    @GetMapping
+    public ResponseEntity<BaseResponse<GridResult<DiaryInListDto>>> searchWithPaging(@RequestParam String param) {
+        return diaryService.searchWithPaging(param);
     }
 }
