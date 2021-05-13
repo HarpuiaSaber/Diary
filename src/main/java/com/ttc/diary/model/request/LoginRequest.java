@@ -1,9 +1,12 @@
 package com.ttc.diary.model.request;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class LoginRequest implements Serializable {
+    @NotBlank(message = "Name is mandatory")
     private String username;
+    @NotBlank(message = "Password is mandatory")
     private String password;
 
     public String getUsername() {

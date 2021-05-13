@@ -1,11 +1,15 @@
 package com.ttc.diary.model.request;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SortParam implements Serializable {
+    @NotBlank(message = "field is mandatory")
     private String field;
+    @NotNull(message = "direction may not be null")
     private SortDirection direction;
 
     public SortParam() {

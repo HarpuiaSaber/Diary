@@ -1,9 +1,13 @@
 package com.ttc.diary.model.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class TopicDto implements Serializable {
+    @Min(value = 1, message = "id can not be less than 1")
     private long id;
+    @NotBlank(message = "Topic is mandatory")
     private String name;
 
     public TopicDto() {
