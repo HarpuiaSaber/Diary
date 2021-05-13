@@ -1,6 +1,6 @@
 package com.ttc.diary.service.impl;
 
-import com.ttc.diary.model.TopicDto;
+import com.ttc.diary.model.dto.TopicDto;
 import com.ttc.diary.repository.TopicRepository;
 import com.ttc.diary.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -38,7 +38,7 @@ public class Diary implements java.io.Serializable {
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "diary_topic", joinColumns = @JoinColumn(name = "diary_id"),
             inverseJoinColumns = @JoinColumn(name = "topic_id"))
     private List<Topic> topics;

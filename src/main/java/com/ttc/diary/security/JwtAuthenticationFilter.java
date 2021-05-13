@@ -1,6 +1,5 @@
-package com.ttc.diary.filter;
+package com.ttc.diary.security;
 
-import com.ttc.diary.component.jwt.JwtTokenProvider;
 import com.ttc.diary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final String HEADER = "Authorization";
+    private static final String START_HEADER = "Bearer ";
+    private static final int START_HEADER_LENGTH = START_HEADER.length();
+
     @Autowired
     private JwtTokenProvider tokenProvider;
 
@@ -49,9 +53,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String getJwtFromRequest(HttpServletRequest request) {
-        String header = request.getHeader("Authorization");
-        if (StringUtils.hasText(header) && header.startsWith("Bearer ")) {
-            return header.substring(7, header.length());
+        String header = request.getHeader(HEADER);
+        if (StringUtils.hasText(header) && header.startsWith(START_HEADER)) {
+            return header.substring(START_HEADER_LENGTH);
         }
         return null;
     }

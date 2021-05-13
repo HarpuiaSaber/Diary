@@ -1,4 +1,4 @@
-package com.ttc.diary.model;
+package com.ttc.diary.model.dto;
 
 import java.io.Serializable;
 import java.util.List;

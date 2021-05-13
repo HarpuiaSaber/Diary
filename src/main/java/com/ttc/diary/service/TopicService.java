@@ -1,6 +1,6 @@
 package com.ttc.diary.service;
 
-import com.ttc.diary.model.TopicDto;
+import com.ttc.diary.model.dto.TopicDto;
 
 import java.util.List;
 

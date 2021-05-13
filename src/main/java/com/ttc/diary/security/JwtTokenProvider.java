@@ -1,4 +1,4 @@
-package com.ttc.diary.component.jwt;
+package com.ttc.diary.security;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

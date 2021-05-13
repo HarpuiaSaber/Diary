@@ -1,4 +1,4 @@
-package com.ttc.diary.model;
+package com.ttc.diary.model.request;
 
 import java.io.Serializable;
 

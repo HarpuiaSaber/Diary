@@ -1,7 +1,6 @@
-package com.ttc.diary.model;
+package com.ttc.diary.model.dto;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 

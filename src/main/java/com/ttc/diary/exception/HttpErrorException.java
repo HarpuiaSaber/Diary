@@ -37,7 +37,6 @@ public class HttpErrorException extends Exception {
         return status;
     }
 
-
     @Override
     public String getMessage() {
         return message;

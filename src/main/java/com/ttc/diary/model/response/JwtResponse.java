@@ -1,4 +1,6 @@
-package com.ttc.diary.model;
+package com.ttc.diary.model.response;
+
+import com.ttc.diary.model.dto.UserDetailDto;
 
 import java.io.Serializable;
 

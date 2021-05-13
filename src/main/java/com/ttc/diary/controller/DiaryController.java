@@ -1,12 +1,12 @@
 package com.ttc.diary.controller;
 
 
-import com.ttc.diary.model.DiaryDetailDto;
 import com.ttc.diary.model.entity.Diary;
-import com.ttc.diary.model.response.SystemResponse;
+import com.ttc.diary.model.dto.DiaryDetailDto;
+import com.ttc.diary.model.response.BaseResponse;
 import com.ttc.diary.service.FileService;
 import com.ttc.diary.util.Constants;
-import com.ttc.diary.model.DiaryDto;
+import com.ttc.diary.model.dto.DiaryDto;
 import com.ttc.diary.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,27 +43,27 @@ public class DiaryController {
     }
 
     @PostMapping
-    public ResponseEntity<SystemResponse<DiaryDto>> createDiary(@RequestBody DiaryDto dto) {
+    public ResponseEntity<BaseResponse<DiaryDto>> createDiary(@RequestBody DiaryDto dto) {
         return diaryService.createDiary(dto);
     }
 
     @PutMapping("/{id}/favorites")
-    public ResponseEntity<SystemResponse<Diary>> changeFavoriteStatus(@PathVariable Long id){
+    public ResponseEntity<BaseResponse<Diary>> changeFavoriteStatus(@PathVariable Long id){
         return diaryService.changeFavoriteStatus(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SystemResponse<DiaryDetailDto>> getDiaryById(@PathVariable Long id){
+    public ResponseEntity<BaseResponse<DiaryDetailDto>> getDiaryById(@PathVariable Long id){
         return diaryService.getDiaryById(id);
     }
   
     @DeleteMapping("/{id}")
-    public ResponseEntity<SystemResponse<Diary>> delete(@PathVariable Long id) {
+    public ResponseEntity<BaseResponse<Diary>> delete(@PathVariable Long id) {
         return diaryService.delete(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SystemResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto){
+    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto){
         return diaryService.updateDiary(id, diaryDto);
     }
 }

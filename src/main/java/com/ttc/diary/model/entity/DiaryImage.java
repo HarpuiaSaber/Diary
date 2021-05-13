@@ -11,7 +11,7 @@ public class DiaryImage implements java.io.Serializable {
 
     private String path;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "diary_id")
     private Diary diary;
 

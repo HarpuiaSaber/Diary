@@ -1,168 +1,188 @@
-08-05-2021 11:03:13.370 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 11.0.10 on DESKTOP-ABV30EM with PID 10436 (D:\TTC Solutions\SpringBoot\Diary\build\classes\java\main started by Quang Vu in D:\TTC Solutions\SpringBoot\Diary)
-08-05-2021 11:03:13.379 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
-08-05-2021 11:03:13.458 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-08-05-2021 11:03:13.458 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-08-05-2021 11:03:14.992 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08-05-2021 11:03:15.107 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 104 ms. Found 4 JPA repository interfaces.
-08-05-2021 11:03:15.635 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7b4edaf5' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08-05-2021 11:03:15.642 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08-05-2021 11:03:16.028 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
-08-05-2021 11:03:16.040 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
-08-05-2021 11:03:16.041 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
-08-05-2021 11:03:16.175 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-08-05-2021 11:03:16.175 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2715 ms
-08-05-2021 11:03:16.434 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-08-05-2021 11:03:16.505 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
-08-05-2021 11:03:16.772 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-08-05-2021 11:03:16.980 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-08-05-2021 11:03:17.274 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-08-05-2021 11:03:17.304 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-08-05-2021 11:03:19.324 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-08-05-2021 11:03:19.336 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-08-05-2021 11:03:19.743 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-08-05-2021 11:03:19.901 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-08-05-2021 11:03:21.375 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-08-05-2021 11:03:22.519 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74cc5009, org.springframework.security.web.context.SecurityContextPersistenceFilter@737a4b00, org.springframework.security.web.header.HeaderWriterFilter@6eaa1315, org.springframework.web.filter.CorsFilter@6fe9e311, org.springframework.security.web.authentication.logout.LogoutFilter@2a9dd9a6, com.ttc.diary.filter.JwtAuthenticationFilter@557670fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c0cc1ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2642ebf0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1578e6b6, org.springframework.security.web.session.SessionManagementFilter@57d09f6d, org.springframework.security.web.access.ExceptionTranslationFilter@6c4abdb8]
-08-05-2021 11:03:22.653 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
-08-05-2021 11:03:23.239 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 10.55 seconds (JVM running for 12.59)
-08-05-2021 11:04:55.899 INFO  [http-nio-9090-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-08-05-2021 11:04:55.900 INFO  [http-nio-9090-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-08-05-2021 11:04:55.903 INFO  [http-nio-9090-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-08-05-2021 11:04:55.977 WARN  [http-nio-9090-exec-2] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-08-05-2021 11:09:19.911 WARN  [http-nio-9090-exec-10] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-08-05-2021 11:11:14.383 ERROR [http-nio-9090-exec-3] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.lang.String cannot be cast to class com.ttc.diary.model.UserPrincipal (java.lang.String is in module java.base of loader 'bootstrap'; com.ttc.diary.model.UserPrincipal is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @73e24d00)] with root cause
-java.lang.ClassCastException: class java.lang.String cannot be cast to class com.ttc.diary.model.UserPrincipal (java.lang.String is in module java.base of loader 'bootstrap'; com.ttc.diary.model.UserPrincipal is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @73e24d00)
-	at com.ttc.diary.service.impl.DiaryServiceImpl.createDiary(DiaryServiceImpl.java:45)
-	at com.ttc.diary.service.impl.DiaryServiceImpl$$FastClassBySpringCGLIB$$3e2f7dd3.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
-	at com.ttc.diary.service.impl.DiaryServiceImpl$$EnhancerBySpringCGLIB$$5a5f74f6.createDiary(<generated>)
-	at com.ttc.diary.controller.DiaryController.createDiary(DiaryController.java:22)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at com.ttc.diary.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:48)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-10-05-2021 17:10:32.631 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 11.0.10 on DESKTOP-ABV30EM with PID 12340 (D:\TTC Solutions\SpringBoot\Diary\build\classes\java\main started by Quang Vu in D:\TTC Solutions\SpringBoot\Diary)
-10-05-2021 17:10:32.634 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
-10-05-2021 17:10:32.685 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-10-05-2021 17:10:32.686 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-10-05-2021 17:10:33.772 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-10-05-2021 17:10:33.852 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 4 JPA repository interfaces.
-10-05-2021 17:10:34.257 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1a2389e0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10-05-2021 17:10:34.262 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10-05-2021 17:10:34.543 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
-10-05-2021 17:10:34.552 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
-10-05-2021 17:10:34.552 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
-10-05-2021 17:10:34.672 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-10-05-2021 17:10:34.672 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1985 ms
-10-05-2021 17:10:34.915 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-10-05-2021 17:10:34.962 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
-10-05-2021 17:10:35.069 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-10-05-2021 17:10:35.172 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-10-05-2021 17:10:35.397 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-10-05-2021 17:10:35.419 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-10-05-2021 17:10:36.976 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-10-05-2021 17:10:36.984 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-10-05-2021 17:10:37.328 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-05-2021 17:10:37.466 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-10-05-2021 17:10:38.077 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-10-05-2021 17:10:38.303 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c662091, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c6d147c, org.springframework.security.web.header.HeaderWriterFilter@9ef9a33, org.springframework.web.filter.CorsFilter@7c2a0098, org.springframework.security.web.authentication.logout.LogoutFilter@5c58f738, com.ttc.diary.filter.JwtAuthenticationFilter@114a2384, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f9a7d90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21e9ce2f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@712fcbba, org.springframework.security.web.session.SessionManagementFilter@1060376c, org.springframework.security.web.access.ExceptionTranslationFilter@f2356bd]
-10-05-2021 17:10:38.400 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
-10-05-2021 17:10:38.455 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 6.293 seconds (JVM running for 7.683)
-10-05-2021 17:11:23.068 INFO  [http-nio-9090-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-10-05-2021 17:11:23.069 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-10-05-2021 17:11:23.070 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13-05-2021 00:04:50.708 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 00:04:51.020 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 00:04:51.036 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 00:04:51.083 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13-05-2021 08:11:14.851 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 1.8.0_231 on DESKTOP-N908099 with PID 12692 (C:\Users\ztoan\IdeaProjects\Diary\build\classes\java\main started by ztoan in C:\Users\ztoan\IdeaProjects\Diary)
+13-05-2021 08:11:14.851 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
+13-05-2021 08:11:14.976 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13-05-2021 08:11:14.976 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13-05-2021 08:11:16.914 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13-05-2021 08:11:17.117 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 180 ms. Found 4 JPA repository interfaces.
+13-05-2021 08:11:17.820 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@71e95a81' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:11:17.820 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:11:18.398 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+13-05-2021 08:11:18.414 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13-05-2021 08:11:18.414 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+13-05-2021 08:11:18.601 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13-05-2021 08:11:18.601 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3609 ms
+13-05-2021 08:11:18.992 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13-05-2021 08:11:19.101 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+13-05-2021 08:11:19.617 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13-05-2021 08:11:19.882 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13-05-2021 08:11:20.554 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13-05-2021 08:11:20.585 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+13-05-2021 08:11:24.335 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13-05-2021 08:11:24.382 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 08:11:27.772 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13-05-2021 08:11:28.022 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13-05-2021 08:11:29.881 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13-05-2021 08:11:30.350 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35a8d736, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c12ae36, org.springframework.security.web.header.HeaderWriterFilter@72e6c29e, org.springframework.web.filter.CorsFilter@61cfd64e, org.springframework.security.web.authentication.logout.LogoutFilter@1a83e7d0, com.ttc.diary.security.JwtAuthenticationFilter@6b32471, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a0dba9a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42cf2dcc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76f1ebcb, org.springframework.security.web.session.SessionManagementFilter@6ad3cc89, org.springframework.security.web.access.ExceptionTranslationFilter@152aaf36]
+13-05-2021 08:11:30.866 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+13-05-2021 08:11:31.788 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 18.007 seconds (JVM running for 21.767)
+13-05-2021 08:11:33.522 INFO  [http-nio-9090-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13-05-2021 08:11:33.522 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13-05-2021 08:11:33.522 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+13-05-2021 08:11:33.631 ERROR [http-nio-9090-exec-2] com.ttc.diary.security.JwtTokenProvider - Invalid JWT token
+13-05-2021 08:14:42.713 ERROR [http-nio-9090-exec-6] com.ttc.diary.security.JwtTokenProvider - Invalid JWT token
+13-05-2021 08:15:01.027 ERROR [http-nio-9090-exec-2] com.ttc.diary.security.JwtTokenProvider - Invalid JWT token
+13-05-2021 08:15:20.446 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 08:15:20.462 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 08:15:20.477 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 08:15:20.493 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13-05-2021 08:15:56.358 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 1.8.0_231 on DESKTOP-N908099 with PID 9752 (C:\Users\ztoan\IdeaProjects\Diary\build\classes\java\main started by ztoan in C:\Users\ztoan\IdeaProjects\Diary)
+13-05-2021 08:15:56.374 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
+13-05-2021 08:15:56.592 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13-05-2021 08:15:56.592 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13-05-2021 08:16:03.811 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13-05-2021 08:16:03.998 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 150 ms. Found 4 JPA repository interfaces.
+13-05-2021 08:16:04.701 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@63422c9' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:16:04.717 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:16:05.264 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+13-05-2021 08:16:05.279 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13-05-2021 08:16:05.279 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+13-05-2021 08:16:05.467 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13-05-2021 08:16:05.467 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8875 ms
+13-05-2021 08:16:05.826 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13-05-2021 08:16:05.920 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+13-05-2021 08:16:06.342 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13-05-2021 08:16:06.607 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13-05-2021 08:16:07.295 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13-05-2021 08:16:07.326 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+13-05-2021 08:16:09.732 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13-05-2021 08:16:09.748 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 08:16:10.545 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13-05-2021 08:16:10.732 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13-05-2021 08:16:11.670 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13-05-2021 08:16:12.060 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b308e1, org.springframework.security.web.context.SecurityContextPersistenceFilter@1473bef0, org.springframework.security.web.header.HeaderWriterFilter@551385ed, org.springframework.web.filter.CorsFilter@2fe4e225, org.springframework.security.web.authentication.logout.LogoutFilter@654cad63, com.ttc.diary.security.JwtAuthenticationFilter@1eda0d49, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30a9638b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@302c4387, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d00073c, org.springframework.security.web.session.SessionManagementFilter@5009849f, org.springframework.security.web.access.ExceptionTranslationFilter@7264633d]
+13-05-2021 08:16:12.263 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+13-05-2021 08:16:13.029 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 17.462 seconds (JVM running for 22.12)
+13-05-2021 08:16:18.044 INFO  [http-nio-9090-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13-05-2021 08:16:18.044 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13-05-2021 08:16:18.044 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+13-05-2021 08:16:18.153 ERROR [http-nio-9090-exec-2] com.ttc.diary.security.JwtTokenProvider - Invalid JWT token
+13-05-2021 08:16:22.684 WARN  [http-nio-9090-exec-4] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:20:52.550 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 08:20:52.596 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 08:20:52.612 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 08:20:52.784 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13-05-2021 08:21:02.646 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 1.8.0_231 on DESKTOP-N908099 with PID 2868 (C:\Users\ztoan\IdeaProjects\Diary\build\classes\java\main started by ztoan in C:\Users\ztoan\IdeaProjects\Diary)
+13-05-2021 08:21:02.652 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
+13-05-2021 08:21:02.746 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13-05-2021 08:21:02.746 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13-05-2021 08:21:04.696 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13-05-2021 08:21:04.864 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 155 ms. Found 4 JPA repository interfaces.
+13-05-2021 08:21:05.604 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@212b403c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:21:05.619 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 08:21:06.104 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+13-05-2021 08:21:06.119 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13-05-2021 08:21:06.119 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+13-05-2021 08:21:06.291 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13-05-2021 08:21:06.291 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3542 ms
+13-05-2021 08:21:06.619 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13-05-2021 08:21:06.713 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+13-05-2021 08:21:07.072 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13-05-2021 08:21:07.260 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13-05-2021 08:21:07.807 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13-05-2021 08:21:07.838 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+13-05-2021 08:21:09.979 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13-05-2021 08:21:09.994 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 08:21:10.666 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13-05-2021 08:21:10.853 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13-05-2021 08:21:11.885 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13-05-2021 08:21:12.260 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@783e16f8, org.springframework.security.web.context.SecurityContextPersistenceFilter@19740ad4, org.springframework.security.web.header.HeaderWriterFilter@7060474f, org.springframework.web.filter.CorsFilter@4a8ff98c, org.springframework.security.web.authentication.logout.LogoutFilter@fefeb06, com.ttc.diary.security.JwtAuthenticationFilter@2854ab07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36aa64a7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7eb28709, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@333d59d1, org.springframework.security.web.session.SessionManagementFilter@2f77ac31, org.springframework.security.web.access.ExceptionTranslationFilter@3e01064d]
+13-05-2021 08:21:12.431 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+13-05-2021 08:21:13.150 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 11.251 seconds (JVM running for 13.325)
+13-05-2021 08:21:18.228 INFO  [http-nio-9090-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13-05-2021 08:21:18.228 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13-05-2021 08:21:18.244 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+13-05-2021 08:30:47.951 WARN  [http-nio-9090-exec-8] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:30:58.966 WARN  [http-nio-9090-exec-2] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:31:07.959 WARN  [http-nio-9090-exec-4] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:32:47.241 WARN  [http-nio-9090-exec-8] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:33:16.911 WARN  [http-nio-9090-exec-2] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:33:19.583 WARN  [http-nio-9090-exec-3] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:34:49.894 WARN  [http-nio-9090-exec-9] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:34:55.644 WARN  [http-nio-9090-exec-1] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:39:24.223 WARN  [http-nio-9090-exec-6] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:40:08.488 WARN  [http-nio-9090-exec-10] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 08:40:54.405 WARN  [http-nio-9090-exec-8] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+13-05-2021 09:01:08.212 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 09:01:08.258 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 09:01:08.273 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 09:01:08.294 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13-05-2021 09:01:20.958 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 1.8.0_231 on DESKTOP-N908099 with PID 1184 (C:\Users\ztoan\IdeaProjects\Diary\build\classes\java\main started by ztoan in C:\Users\ztoan\IdeaProjects\Diary)
+13-05-2021 09:01:20.964 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
+13-05-2021 09:01:21.061 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13-05-2021 09:01:21.061 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13-05-2021 09:01:23.195 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13-05-2021 09:01:23.382 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 171 ms. Found 4 JPA repository interfaces.
+13-05-2021 09:01:24.097 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@26f3f5c3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 09:01:24.105 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 09:01:24.604 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+13-05-2021 09:01:24.621 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13-05-2021 09:01:24.622 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+13-05-2021 09:01:24.825 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13-05-2021 09:01:24.826 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3762 ms
+13-05-2021 09:01:25.168 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13-05-2021 09:01:25.360 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+13-05-2021 09:01:26.525 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13-05-2021 09:01:28.349 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13-05-2021 09:01:29.567 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13-05-2021 09:01:29.656 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+13-05-2021 09:01:33.606 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13-05-2021 09:01:33.627 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 09:01:34.336 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13-05-2021 09:01:34.539 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13-05-2021 09:01:35.444 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13-05-2021 09:01:35.829 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4154dfb2, org.springframework.security.web.context.SecurityContextPersistenceFilter@350a0477, org.springframework.security.web.header.HeaderWriterFilter@200b9468, org.springframework.web.filter.CorsFilter@77fb1f28, org.springframework.security.web.authentication.logout.LogoutFilter@1b654f31, com.ttc.diary.security.JwtAuthenticationFilter@60061e61, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@494b7752, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@597d55e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64ccaf86, org.springframework.security.web.session.SessionManagementFilter@42e074b8, org.springframework.security.web.access.ExceptionTranslationFilter@14f8b048]
+13-05-2021 09:01:36.009 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+13-05-2021 09:01:36.764 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 16.561 seconds (JVM running for 18.722)
+13-05-2021 09:03:07.211 INFO  [http-nio-9090-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13-05-2021 09:03:07.211 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13-05-2021 09:03:07.216 INFO  [http-nio-9090-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+13-05-2021 09:03:07.299 ERROR [http-nio-9090-exec-2] com.ttc.diary.security.JwtTokenProvider - Invalid JWT token
+13-05-2021 09:05:29.726 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 09:05:29.738 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 09:05:29.743 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 09:05:29.753 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13-05-2021 09:05:38.401 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Starting DiaryApplication using Java 1.8.0_231 on DESKTOP-N908099 with PID 1456 (C:\Users\ztoan\IdeaProjects\Diary\build\classes\java\main started by ztoan in C:\Users\ztoan\IdeaProjects\Diary)
+13-05-2021 09:05:38.408 INFO  [restartedMain] com.ttc.diary.DiaryApplication - No active profile set, falling back to default profiles: default
+13-05-2021 09:05:38.521 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13-05-2021 09:05:38.521 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13-05-2021 09:05:40.323 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13-05-2021 09:05:40.503 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 4 JPA repository interfaces.
+13-05-2021 09:05:41.232 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@19d17309' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 09:05:41.241 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13-05-2021 09:05:41.791 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+13-05-2021 09:05:41.808 INFO  [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13-05-2021 09:05:41.809 INFO  [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+13-05-2021 09:05:42.033 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13-05-2021 09:05:42.034 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3509 ms
+13-05-2021 09:05:42.441 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13-05-2021 09:05:42.527 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+13-05-2021 09:05:42.880 INFO  [restartedMain] org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13-05-2021 09:05:43.067 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13-05-2021 09:05:43.616 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13-05-2021 09:05:43.642 INFO  [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+13-05-2021 09:05:45.733 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13-05-2021 09:05:45.752 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 09:05:46.381 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13-05-2021 09:05:46.584 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13-05-2021 09:05:47.512 INFO  [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13-05-2021 09:05:47.944 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6cc76656, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a9b84f3, org.springframework.security.web.header.HeaderWriterFilter@3bce66b0, org.springframework.web.filter.CorsFilter@1cfc0593, org.springframework.security.web.authentication.logout.LogoutFilter@474e6561, com.ttc.diary.security.JwtAuthenticationFilter@8820e16, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59677cb8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5edc6648, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50bdaca3, org.springframework.security.web.session.SessionManagementFilter@5b5c5e97, org.springframework.security.web.access.ExceptionTranslationFilter@faf1469]
+13-05-2021 09:05:48.116 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+13-05-2021 09:05:48.851 INFO  [restartedMain] com.ttc.diary.DiaryApplication - Started DiaryApplication in 11.319 seconds (JVM running for 13.088)
+13-05-2021 09:06:17.365 INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13-05-2021 09:06:17.372 INFO  [SpringContextShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13-05-2021 09:06:17.376 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13-05-2021 09:06:17.385 INFO  [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,22 +1,15 @@
-package com.ttc.diary.model;
+package com.ttc.diary.model.dto;
 
 import java.io.Serializable;
 
-public class UserDetailDto implements Serializable {
+public class UserDto implements Serializable {
     private Long id;
     private String name;
     private String username;
-    private String avatar;
+    private String password;
 
-    public UserDetailDto() {
+    public UserDto() {
         //default constructor
-    }
-
-    public UserDetailDto(Long id, String name, String username, String avatar) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.avatar = avatar;
     }
 
     public Long getId() {
@@ -43,11 +36,11 @@ public class UserDetailDto implements Serializable {
         this.username = username;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

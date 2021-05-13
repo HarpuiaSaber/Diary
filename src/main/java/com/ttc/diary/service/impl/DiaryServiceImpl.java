@@ -1,30 +1,28 @@
 package com.ttc.diary.service.impl;
 
-import com.ttc.diary.exception.ResourceNotFoundException;
 import com.ttc.diary.model.*;
+import com.ttc.diary.model.dto.DiaryDetailDto;
+import com.ttc.diary.model.dto.DiaryDto;
+import com.ttc.diary.model.dto.ImageDto;
+import com.ttc.diary.model.dto.TopicDto;
 import com.ttc.diary.model.entity.Diary;
 import com.ttc.diary.model.entity.DiaryImage;
 import com.ttc.diary.model.entity.Topic;
 import com.ttc.diary.model.entity.User;
+import com.ttc.diary.model.response.*;
 import com.ttc.diary.repository.DiaryImageRepository;
 import com.ttc.diary.repository.DiaryRepository;
-import com.ttc.diary.repository.TopicRepository;
 import com.ttc.diary.service.DiaryService;
+import com.ttc.diary.service.UserService;
 import com.ttc.diary.util.Constants;
-import com.ttc.diary.model.response.Response;
-import com.ttc.diary.model.response.SystemResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,29 +32,25 @@ public class DiaryServiceImpl implements DiaryService {
 
     private final DiaryRepository diaryRepository;
 
-    private final TopicRepository topicRepository;
-
     private final DiaryImageRepository diaryImageRepository;
 
+    private final UserService userService;
+
     @Autowired
-    public DiaryServiceImpl(DiaryRepository diaryRepository, TopicRepository topicRepository, DiaryImageRepository diaryImageRepository) {
+    public DiaryServiceImpl(DiaryRepository diaryRepository, DiaryImageRepository diaryImageRepository, UserService userService) {
         this.diaryRepository = diaryRepository;
-        this.topicRepository = topicRepository;
         this.diaryImageRepository = diaryImageRepository;
+        this.userService = userService;
     }
 
-    public ResponseEntity<SystemResponse<DiaryDto>> createDiary(DiaryDto dto) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!authentication.isAuthenticated())
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user");
-        UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
+    public ResponseEntity<BaseResponse<DiaryDto>> createDiary(DiaryDto dto) {
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser().orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
         Diary diary = new Diary();
         diary.setOwner(new User(principal.getId()));
         diary.setTitle(dto.getTitle());
         diary.setContent(dto.getContent());
         diary.setFavorite(false);
-        List<Topic> topics = topicRepository.findAllById(dto.getTopicIds());
-        diary.setTopics(topics);
+        diary.setTopics(dto.getTopicIds().stream().map(s -> new Topic(s)).collect(Collectors.toList()));
 
         diaryRepository.saveAndFlush(diary);
         dto.setId(diary.getId());
@@ -72,18 +66,26 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public ResponseEntity<SystemResponse<Diary>> changeFavoriteStatus(Long id) {
+    public ResponseEntity<BaseResponse<Diary>> changeFavoriteStatus(Long id) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
+        if (diary.getOwner().getId() != principal.getId())
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Can not access to this diary!!!");
         diary.setFavorite(!diary.getFavorite());
 
         return Response.ok();
     }
 
     @Override
-    public ResponseEntity<SystemResponse<DiaryDetailDto>> getDiaryById(Long id) {
+    public ResponseEntity<BaseResponse<DiaryDetailDto>> getDiaryById(Long id) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
+        if (diary.getOwner().getId() != principal.getId())
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Can not access to this diary!!!");
 
         DiaryDetailDto diaryDetailDto = new DiaryDetailDto();
 
@@ -103,30 +105,38 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public ResponseEntity<SystemResponse<Diary>> delete(Long id) {
+    public ResponseEntity<BaseResponse<Diary>> delete(Long id) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not found!!!"));
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
+        if (diary.getOwner().getId() != principal.getId())
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Can not access to this diary!!!");
         List<DiaryImage> images = diaryImageRepository.findAllByDiaryId(id);
         for (DiaryImage image : images) {
-            try {
-                Files.deleteIfExists(Paths.get(Constants.BASE_URL + image.getPath()));
-            } catch (IOException e) {
+            File imageFile = new File(Constants.BASE_URL + image.getPath());
+            if (imageFile.exists() && imageFile.isFile()) {
+                imageFile.delete();
             }
         }
         diaryImageRepository.deleteInBatch(images);
 
         diaryRepository.delete(diary);
-        return Response.ok(100,"Delete success");
+        return Response.ok(100, "Delete success");
     }
 
     @Override
-    public ResponseEntity<SystemResponse<DiaryDto>> updateDiary(Long id, DiaryDto diaryDto) {
+    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(Long id, DiaryDto diaryDto) {
         Diary diary = diaryRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Diary not exist with id " + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Diary not exist with id " + id));
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
+        if (diary.getOwner().getId() != principal.getId())
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Can not access to this diary!!!");
         diary.setTitle(diaryDto.getTitle());
         diary.setContent(diaryDto.getContent());
 
-        diary.setTopics(topicRepository.findAllById(diaryDto.getTopicIds()));
+        diary.setTopics(diaryDto.getTopicIds().stream().map(s -> new Topic(s)).collect(Collectors.toList()));
 
         if (diaryDto.getImageDtos() != null && diaryDto.getImageDtos().size() > 0) {
             List<Long> imageIds = diaryDto.getImageDtos().stream().map(ImageDto::getId).collect(Collectors.toList());

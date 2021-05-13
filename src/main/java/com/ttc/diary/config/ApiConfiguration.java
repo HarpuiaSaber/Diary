@@ -1,7 +1,7 @@
 package com.ttc.diary.config;
 
-import com.ttc.diary.component.jwt.AuthEntryPointJwt;
-import com.ttc.diary.filter.JwtAuthenticationFilter;
+import com.ttc.diary.security.AuthEntryPointJwt;
+import com.ttc.diary.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -29,10 +29,13 @@ public class ApiConfiguration extends WebSecurityConfigurerAdapter {
 
     private final AuthEntryPointJwt unauthorizedHandler;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public ApiConfiguration(UserDetailsService userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
+    public ApiConfiguration(UserDetailsService userDetailsService, AuthEntryPointJwt unauthorizedHandler, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.unauthorizedHandler = unauthorizedHandler;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Bean
@@ -44,11 +47,6 @@ public class ApiConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12);
     }
 
     @Bean
@@ -65,7 +63,7 @@ public class ApiConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
     @Override

@@ -1,9 +1,9 @@
 package com.ttc.diary.service.impl;
 
-import com.ttc.diary.component.jwt.JwtTokenProvider;
-import com.ttc.diary.model.JwtResponse;
-import com.ttc.diary.model.LoginRequest;
-import com.ttc.diary.model.UserDetailDto;
+import com.ttc.diary.security.JwtTokenProvider;
+import com.ttc.diary.model.response.JwtResponse;
+import com.ttc.diary.model.request.LoginRequest;
+import com.ttc.diary.model.dto.UserDetailDto;
 import com.ttc.diary.model.UserPrincipal;
 import com.ttc.diary.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;

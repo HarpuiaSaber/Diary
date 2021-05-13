@@ -1,23 +1,27 @@
 package com.ttc.diary.service.impl;
 
+import com.ttc.diary.exception.UserIdNotFoundException;
 import com.ttc.diary.model.entity.User;
-import com.ttc.diary.model.UserDto;
+import com.ttc.diary.model.dto.UserDto;
 import com.ttc.diary.model.UserPrincipal;
 import com.ttc.diary.repository.UserRepository;
 import com.ttc.diary.service.UserService;
-import com.ttc.diary.util.PasswordGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,9 +29,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -49,7 +56,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException("Not found user with id: " + id));
+                .orElseThrow(() -> new UserIdNotFoundException("Not found user with id: " + id));
 
         UserPrincipal principal = new UserPrincipal(user.getUsername(), user.getPassword(), true, true,
                 true, true, new ArrayList<>());
@@ -61,12 +68,26 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    public Optional<UserPrincipal> getCurrentAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!authentication.isAuthenticated())
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user");
+        Object obj = authentication.getPrincipal();
+        if (obj instanceof UserPrincipal) {
+            return Optional.of((UserPrincipal) authentication.getPrincipal());
+        }
+        return Optional.empty();
+    }
+
+
+    @Override
     public UserDto add(UserDto dto) {
-        if (userRepository.existsByUsername(dto.getUsername())) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already exists!!!");
+        if (userRepository.existsByUsername(dto.getUsername()))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already exists!!!");
         User user = new User();
         user.setId(null);
         user.setUsername(dto.getUsername());
-        user.setPassword(PasswordGenerator.getHashString(dto.getPassword()));
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setName(dto.getName());
         user.setAvatar("/user/avatar.jpg");
         userRepository.save(user);
