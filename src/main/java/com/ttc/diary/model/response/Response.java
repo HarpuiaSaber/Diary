@@ -49,11 +49,11 @@ public class Response {
     }
 
     public static <T> ResponseEntity<BaseResponse<T>> ok(T body) {
-        return ResponseEntity.ok(new BaseResponse<>(1000, StatusCodeResponse.getMessage(1000), body));
+        return ResponseEntity.ok(new BaseResponse<>(StatusCodeResponse.SUCCESS, StatusCodeResponse.getMessage(StatusCodeResponse.SUCCESS), body));
     }
 
     public static <T> ResponseEntity<BaseResponse<T>> ok() {
-        return ResponseEntity.ok(new BaseResponse<>(1000, StatusCodeResponse.getMessage(1000), null));
+        return ResponseEntity.ok(new BaseResponse<>(StatusCodeResponse.SUCCESS, StatusCodeResponse.getMessage(StatusCodeResponse.SUCCESS), null));
     }
 
     public static <T> ResponseEntity<BaseResponse<T>> ok(int code, String message) {
@@ -61,7 +61,7 @@ public class Response {
     }
 
     public static <T> ResponseEntity<BaseResponse<T>> ok(String message, T body) {
-        return ResponseEntity.ok(new BaseResponse<>(1000, message, body));
+        return ResponseEntity.ok(new BaseResponse<>(StatusCodeResponse.SUCCESS, message, body));
     }
 
     public static <T> ResponseEntity<BaseResponse<T>> httpError(HttpErrorException e) {

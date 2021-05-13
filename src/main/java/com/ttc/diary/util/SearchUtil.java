@@ -22,8 +22,8 @@ public final class SearchUtil {
         return URLDecoder.decode(param, StandardCharsets.UTF_8.toString());
     }
 
-    public static GridParam getGridParam(String decodedParam) throws JsonProcessingException, JsonMappingException {
-        return new ObjectMapper().readValue(decodedParam, GridParam.class);
+    public static <T> T getGridParam(String decodedParam, Class<T> clazz) throws JsonProcessingException {
+        return new ObjectMapper().readValue(decodedParam, clazz);
     }
 
     public static Sort getSort(SortParam sortParam) {

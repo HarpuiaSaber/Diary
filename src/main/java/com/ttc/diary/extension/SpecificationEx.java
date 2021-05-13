@@ -7,6 +7,7 @@ import javax.persistence.criteria.*;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public final class SpecificationEx<T> implements Specification<T> {
@@ -76,10 +77,10 @@ public final class SpecificationEx<T> implements Specification<T> {
                 return path.in(filter.getValue());
             case NOT_IN:
                 return criteriaBuilder.not(path.in(filter.getValue()));
-            case CONTAINS:
-                return criteriaBuilder.isMember(filter.getValue(), path);
-            case NOT_CONTAINS:
-                return criteriaBuilder.isNotMember(filter.getValue(), path);
+//            case CONTAINS:
+//                return criteriaBuilder.isMember(filter.getValue(), path);
+//            case NOT_CONTAINS:
+//                return criteriaBuilder.isNotMember(filter.getValue(), path);
             default:
                 throw new RuntimeException("Operation not supported yet");
         }
