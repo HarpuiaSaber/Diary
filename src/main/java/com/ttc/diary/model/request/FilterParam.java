@@ -1,12 +1,17 @@
 package com.ttc.diary.model.request;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FilterParam implements Serializable {
+    @NotBlank(message = "field is mandatory")
     private String field;
+    @NotNull(message = "value may not be null")
     private Object value;
+    @NotNull(message = "operator may not be null")
     private ComparisonOperator operator;
 
     public FilterParam() {

@@ -1,13 +1,16 @@
 package com.ttc.diary.model.request;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.List;
 
 public class GridParam implements Serializable {
     private List<SortParam> sorts;
     private List<FilterParam> filters;
-    private Integer page;
-    private Integer length;
+    @NotBlank(message = "Page is mandatory")
+    private Integer page = 0;
+    @NotBlank(message = "length is mandatory")
+    private Integer length = 10;
 
     public GridParam() {
         //default constructor

@@ -1,9 +1,11 @@
 package com.ttc.diary.model.dto;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class ImageDto implements Serializable {
     private Long id;
+    @NotBlank(message = "Path is mandatory")
     private String path;
 
     public ImageDto() {
