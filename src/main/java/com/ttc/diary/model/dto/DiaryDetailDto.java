@@ -10,6 +10,7 @@ public class DiaryDetailDto implements Serializable {
     private String content;
     private OffsetDateTime creationTime;
     private OffsetDateTime modificationTime;
+    private Boolean isFavorite;
     private List<ImageDto> images;
     private List<TopicDto> topics;
 
@@ -17,12 +18,13 @@ public class DiaryDetailDto implements Serializable {
         //default constructor
     }
 
-    public DiaryDetailDto(Long id, String title, String content, OffsetDateTime creationTime, OffsetDateTime modificationTime, List<ImageDto> images, List<TopicDto> topics) {
+    public DiaryDetailDto(Long id, String title, String content, OffsetDateTime creationTime, OffsetDateTime modificationTime, Boolean isFavorite, List<ImageDto> images, List<TopicDto> topics) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.creationTime = creationTime;
         this.modificationTime = modificationTime;
+        this.isFavorite = isFavorite;
         this.images = images;
         this.topics = topics;
     }
@@ -65,6 +67,14 @@ public class DiaryDetailDto implements Serializable {
 
     public void setModificationTime(OffsetDateTime modificationTime) {
         this.modificationTime = modificationTime;
+    }
+
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
     }
 
     public List<ImageDto> getImages() {
