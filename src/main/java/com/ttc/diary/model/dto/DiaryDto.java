@@ -1,7 +1,7 @@
 package com.ttc.diary.model.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class DiaryDto implements Serializable {
     @NotBlank(message = "content is mandatory")
     private String content;
     private List<ImageDto> imageDtos;
-    @NotNull(message = "Topic may not be null")
+    @Size(min = 1)
     private List<Long> topicIds;
 
     public DiaryDto() {

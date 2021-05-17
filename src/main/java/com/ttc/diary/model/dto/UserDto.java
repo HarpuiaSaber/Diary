@@ -1,5 +1,7 @@
 package com.ttc.diary.model.dto;
 
+import com.ttc.diary.validation.ValidPassword;
+
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
@@ -9,7 +11,7 @@ public class UserDto implements Serializable {
     private String name;
     @NotBlank(message = "username is mandatory")
     private String username;
-    @NotBlank(message = "Password is mandatory")
+    @ValidPassword
     private String password;
 
     public UserDto() {

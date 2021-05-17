@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class TopicController {
 
     @PreAuthorize("permitAll()")
     @PostMapping
-    public ResponseEntity<BaseResponse<TopicDto>> createTopic(@RequestBody TopicDto dto){
+    public ResponseEntity<BaseResponse<TopicDto>> createTopic(@RequestBody @Valid TopicDto dto){
         return topicService.createTopic(dto);
     }
 }

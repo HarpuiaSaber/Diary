@@ -26,7 +26,10 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'com.fasterxml.jackson.core:jackson-annotations'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.4.5'
+    implementation group: 'org.passay', name: 'passay', version: '1.0'
 
+
+    implementation 'com.google.api.graphql:rejoiner:0.3.1'
 }
 
 test {

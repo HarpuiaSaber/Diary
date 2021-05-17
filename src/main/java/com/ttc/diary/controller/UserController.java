@@ -12,6 +12,7 @@ import com.ttc.diary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -31,12 +32,12 @@ public class UserController {
     }
 
     @PostMapping
-    public UserDto register(@RequestBody UserDto dto) {
+    public UserDto register(@RequestBody @Valid UserDto dto) {
         return userService.add(dto);
     }
 
     @PostMapping("/login")
-    public JwtResponse login(@RequestBody LoginRequest request) {
+    public JwtResponse login(@RequestBody @Valid LoginRequest request) {
       return jwtService.getUserAndToken(request);
     }
 

@@ -53,7 +53,8 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     public ResponseEntity<BaseResponse<DiaryDto>> createDiary(DiaryDto dto) {
-        UserPrincipal principal = userService.getCurrentAuthenticatedUser().orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
+        UserPrincipal principal = userService.getCurrentAuthenticatedUser()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized user"));
         Diary diary = new Diary();
         diary.setOwner(new User(principal.getId()));
         diary.setTitle(dto.getTitle());

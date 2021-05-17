@@ -16,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.File;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class DiaryController {
     }
 
     @PostMapping
-    public ResponseEntity<BaseResponse<DiaryDto>> createDiary(@RequestBody DiaryDto dto) {
+    public ResponseEntity<BaseResponse<DiaryDto>> createDiary(@RequestBody @Valid DiaryDto dto) {
         return diaryService.createDiary(dto);
     }
 
@@ -65,7 +66,7 @@ public class DiaryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody DiaryDto diaryDto) {
+    public ResponseEntity<BaseResponse<DiaryDto>> updateDiary(@PathVariable Long id, @RequestBody @Valid DiaryDto diaryDto) {
         return diaryService.updateDiary(id, diaryDto);
     }
 
