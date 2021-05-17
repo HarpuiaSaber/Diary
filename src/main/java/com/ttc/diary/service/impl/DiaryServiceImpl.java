@@ -105,6 +105,7 @@ public class DiaryServiceImpl implements DiaryService {
                 .collect(Collectors.toList()));
         diaryDetailDto.setTitle(diary.getTitle());
         diaryDetailDto.setContent(diary.getContent());
+        diaryDetailDto.setFavorite(diary.getFavorite());
         diaryDetailDto.setImages(diaryImageRepository.findAllByDiaryId(id).stream()
                 .map(s -> new ImageDto(s.getId(), s.getPath()))
                 .collect(Collectors.toList()));
